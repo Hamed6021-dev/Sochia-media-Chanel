@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قناة السوشيال ميديا | يوتوب - إنستجرام - تيك توك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --primary: #FF0000;
+            --secondary: #282828;
+            --accent: #303030;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--secondary);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/231d7b29-504c-4138-a53f-882ba71bae54.png');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .channel-name {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+        }
+        
+        .channel-desc {
+            font-size: 1.2rem;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .subscribe-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .subscribe-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255,0,0,0.5);
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .video-card {
+            background-color: var(--accent);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            padding: 15px;
+        }
+        
+        .video-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .video-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #AAAAAA;
+            font-size: 0.9rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 0;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+            background-color: var(--primary);
+        }
+        
+        /* Dropdown Navigation */
+        .navbar {
+            background-color: var(--accent);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .dropbtn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--accent);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: right;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .dropdown {
+                width: 100%;
+            }
+            .hero-section {
+                height: 50vh;
+            }
+            
+            .channel-name {
+                font-size: 2rem;
+            }
+            
+            .channel-desc {
+                font-size: 1rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">تسويق السوشيال ميديا</button>
+            <div class="dropdown-content">
+                <a href="#">استراتيجيات إنستجرام</a>
+                <a href="#">تيك توك ماركتنج</a>
+                <a href="#">إعلانات اليوتيوب</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">أدوات واستراتيجيات</button>
+            <div class="dropdown-content">
+                <a href="#">أفضل أدوات التحليل</a>
+                <a href="#">خطة المحتوى الشهرية</a>
+                <a href="#">تحليل المنافسين</a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section">
+        <h1 class="channel-name">قناة السوشيال ميديا</h1>
+        <p class="channel-desc">أهلاً بكم في <a href="https://www.youtube.com/@sheafawrahmah" style="color:var(--primary);font-weight:500;">قناتي الرسمية على اليوتوب</a>! تابعوني أيضاً على إنستجرام وتيك توك لمزيد من المحتوى الحصري حول السوشيال ميديا والتسويق الرقمي</p>
+        <a href="https://www.youtube.com/@sheafawrahmah" target="_blank" class="subscribe-btn">اشترك في القناة</a>
+    </div>
+    
+    <div class="video-grid">
+        <div class="video-card">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd4a26f4-6d77-46f1-8c31-4d017ba422b5.png" alt="صورة مصغرة لفيديو تعليمي عن التسويق الرقمي على المنصات الإجتماعية" class="thumbnail">
+            <div class="video-info">
+                <div class="video-title">كيف تبدأ في التسويق الرقمي في 2023</div>
+                <div class="video-stats">
+                    <span>12K views</span>
+                    <span>3 days ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f961e236-fa57-4c48-95fc-97021f188b40.png" alt="صورة مصغرة لفيديو شرح أدوات تحليل السوشيال ميديا" class="thumbnail">
+            <div class="video-info">
+                <div class="video-title">أدوات رائعة لتحليل السوشيال ميديا</div>
+                <div class="video-stats">
+                    <span>8.5K views</span>
+                    <span>1 week ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fa20e7bd-e539-4c76-9aee-3b6b7bab9eeb.png" alt="صورة مصغرة لفيديو تعليمي عن خوارزميات اليوتوب" class="thumbnail">
+            <div class="video-info">
+                <div class="video-title">فهم خوارزميات اليوتوب لمحتوى ناجح</div>
+                <div class="video-stats">
+                    <span>15K views</span>
+                    <span>2 weeks ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3906c9cf-982a-43a3-b75f-dc7dfa55382c.png" alt="صورة مصغرة لفيديو تعليمي عن إنشاء محتوى جذاب" class="thumbnail">
+            <div class="video-info">
+                <div class="video-title">نصائح خبيرة لإنشاء محتوى جذاب</div>
+                <div class="video-stats">
+                    <span>20K views</span>
+                    <span>3 weeks ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="social-icons">
+        <a href="https://www.youtube.com/@sheafawrahmah" target="_blank" class="social-icon">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c8369f8-0136-4c2b-83ff-3bf25abf919d.png" alt="أيقونة اليوتوب">
+        </a>
+        <a href="https://www.instagram.com/hamedalmhareb/" target="_blank" class="social-icon">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/11a75059-deda-4461-b495-b537681b0495.png" alt="أيقونة إنستجرام">
+        </a>
+        <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME" target="_blank" class="social-icon">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1818ada9-12f7-4403-bfd6-1e5ce3f9d292.png" alt="أيقونة تيك توك">
+        </a>
+    </div>
+    
+    <script>
+        // Mobile dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            if(window.innerWidth <= 768) {
+                dropdowns.forEach(dropdown => {
+                    const btn = dropdown.querySelector('.dropbtn');
+                    btn.addEventListener('click', function() {
+                        const content = this.nextElementSibling;
+                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    });
+                });
+            }
+        });
+        // Animation for subscription button
+        const subscribeBtn = document.querySelector('.subscribe-btn');
+        
+        subscribeBtn.addEventListener('click', function() {
+            this.textContent = 'تم الاشتراك!';
+            this.style.backgroundColor = '#4CAF50';
+            
+            setTimeout(() => {
+                this.textContent = 'اشترك في القناة';
+                this.style.backgroundColor = 'var(--primary)';
+            }, 2000);
+        });
+        
+        // Video card interaction
+        const videoCards = document.querySelectorAll('.video-card');
+        
+        videoCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // In a real scenario, this would redirect to the video
+                alert('سيتم توجيهك إلى الفيديو في الصفحة الحقيقية');
+            });
+        });
+    </script>
+</body>
+</html>
